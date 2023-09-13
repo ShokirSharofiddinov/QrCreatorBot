@@ -8,7 +8,6 @@ import { InjectBot } from 'nestjs-telegraf';
 @Injectable()
 export class BotService {
   private awaitingInputSessions: Record<number, boolean> = {};
-  private creatingQRUsers: Set<number> = new Set();
   constructor(
     @InjectModel(Bot) private botRepo: typeof Bot,
     @InjectBot(BOT_NAME) private readonly bot: Telegraf<Context>,

@@ -1,4 +1,3 @@
-
 import { Column, DataType, Model, Table } from 'sequelize-typescript';
 
 interface BotAttr {
@@ -8,6 +7,7 @@ interface BotAttr {
   last_name: string;
   phone_number: string;
   status: boolean;
+  is_active: boolean;
 }
 @Table({ tableName: 'bot' })
 export class Bot extends Model<Bot, BotAttr> {
@@ -17,7 +17,7 @@ export class Bot extends Model<Bot, BotAttr> {
     allowNull: false,
   })
   user_id: number;
-  
+
   @Column({
     type: DataType.STRING,
   })
@@ -40,7 +40,7 @@ export class Bot extends Model<Bot, BotAttr> {
 
   @Column({
     type: DataType.BOOLEAN,
-    defaultValue: false
+    defaultValue: false,
   })
   status: boolean;
 }
